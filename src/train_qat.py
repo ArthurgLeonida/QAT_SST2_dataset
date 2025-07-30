@@ -25,9 +25,9 @@ def train_qat_model(
 
     ort_config = ORTConfig(
         quantization=AutoQuantizationConfig.for_sequence_classification(
-            model_input_names=["input_ids", "attention_mask"],
             is_static=True, 
-            format="QDQ" # (Quantize-Dequantize)
+            format="QDQ", # (Quantize-Dequantize)
+            weight_type="int8",
         )
     )
 
@@ -48,7 +48,8 @@ def train_qat_model(
         fp16=torch.cuda.is_available(),
         report_to="tensorboard",
         save_onnx_model=True,
-        save_onnx_model_path=save_path
+        save_onnx_model_path=save_path,
+        feature='sequence-classification'
     )
 
     qat_trainer = ORTTrainer(
@@ -58,6 +59,7 @@ def train_qat_model(
         eval_dataset=eval_ds,
         compute_metrics=compute_metrics,
         tokenizer=tokenizer,
+        feature='sequence-classification',
         ort_config=ort_config
     )
 
