@@ -55,7 +55,7 @@ if __name__ == '__main__':
     )
 
     ################################## Fine-Tuned Baseline Model Training ##################################
-    '''
+    
     print("\nStarting baseline model training...")
     train_baseline_model(
         model_name=MODEL_NAME,
@@ -71,7 +71,7 @@ if __name__ == '__main__':
         tokenizer=parent_tokenizer
     )
     print("Baseline model Fine-Tuning complete!")
-    '''
+    
     print("\nStarting evaluation of the fine-tuned model...")
     evaluate_pytorch_model(
         model_path=FINE_TUNED_MODEL_SAVE_PATH,

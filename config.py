@@ -15,7 +15,7 @@ PRUNED_MODEL_SAVE_PATH = "./PTUP_model"
 QUANTIZED_QAT_MODEL_SAVE_PATH = "./QAT_model"
 
 # Training Hyperparameters
-NUM_TRAIN_EPOCHS = 3
+NUM_TRAIN_EPOCHS = 8
 PER_DEVICE_TRAIN_BATCH_SIZE = 16
 PER_DEVICE_EVAL_BATCH_SIZE = 16
 LEARNING_RATE = 2e-5
@@ -31,4 +31,4 @@ QAT_LEARNING_RATE = 2e-5
 NUM_PROCESSES_FOR_MAP = 6 # Number of processes for datasets.map() (adjust based on your CPU cores)
 
 # Subset for quick testing (set to -1 or a very large number for full dataset)
-SUBSET_SIZE = 500
+SUBSET_SIZE = -1
