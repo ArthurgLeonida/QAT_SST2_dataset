@@ -7,12 +7,11 @@ TOKENIZER_SAVE_PATH = "./distilbert_tokenizer_local"
 TOKENIZED_DATASET_SAVE_PATH = "./SST2_tokenized_dataset"
 FINE_TUNED_MODEL_SAVE_PATH = "./fine_tuned_baseline_model"
 BASELINE_OUTPUT_DIR = "./results_baseline"
-
+QUANTIZED_QAT_MODEL_SAVE_PATH = "./QAT_model"
 
 
 QUANTIZED_MODEL_SAVE_PATH = "./PTQ_model"
 PRUNED_MODEL_SAVE_PATH = "./PTUP_model"
-QUANTIZED_QAT_MODEL_SAVE_PATH = "./QAT_model"
 
 # Training Hyperparameters
 NUM_TRAIN_EPOCHS = 8

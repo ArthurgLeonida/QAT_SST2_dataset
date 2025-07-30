@@ -5,7 +5,8 @@ import torch
 # Import modules from src directory
 from src.data_preparation import load_and_preprocess_data, get_subsetted_datasets
 from src.train_baseline import train_baseline_model
-from src.evaluate_models import evaluate_pytorch_model
+from src.evaluate_models import evaluate_pytorch_model, evaluate_onnx_model
+from src.train_qat import train_qat_model
 
 # Import configuration from config.py
 from config import (
@@ -21,7 +22,9 @@ from config import (
     LEARNING_RATE,
     WEIGHT_DECAY,
     NUM_TRAIN_EPOCHS,
-    FINE_TUNED_MODEL_SAVE_PATH
+    FINE_TUNED_MODEL_SAVE_PATH,
+    NUM_QAT_EPOCHS,
+    QUANTIZED_QAT_MODEL_SAVE_PATH
 )
 
 if __name__ == '__main__':
@@ -72,18 +75,41 @@ if __name__ == '__main__':
     )
     print("Baseline model Fine-Tuning complete!")
     
-    print("\nStarting evaluation of the fine-tuned model...")
+    print("\nStarting evaluation of the baseline model...")
     evaluate_pytorch_model(
         model_path=FINE_TUNED_MODEL_SAVE_PATH,
         eval_dataset=tok_val_ds,
         batch_size=PER_DEVICE_EVAL_BATCH_SIZE,
         tokenizer=parent_tokenizer
     )
-    print("Evaluation complete!")
+    print("Baseline model evaluation complete!")
     
     ######################################### QAT Model Training ###########################################
 
+    print("\nStarting Quantization-Aware Training (QAT) model training...")
+    train_qat_model(
+        baseline_model_path=FINE_TUNED_MODEL_SAVE_PATH,
+        output_dir="./results_qat",
+        num_train_epochs_qat=NUM_QAT_EPOCHS,  # Lower than baseline
+        learning_rate_qat=LEARNING_RATE / 4,  # Lower than baseline
+        per_device_train_batch_size=PER_DEVICE_TRAIN_BATCH_SIZE,
+        per_device_eval_batch_size=PER_DEVICE_EVAL_BATCH_SIZE,
+        train_ds=tok_train_ds,
+        eval_ds=tok_val_ds,
+        tokenizer=parent_tokenizer,
+        save_path=QUANTIZED_QAT_MODEL_SAVE_PATH
+    )
+    print("QAT model training complete!")
 
+    print("\nStarting evaluation of the QAT model...")
+    evaluate_onnx_model(
+        onnx_model_path=QUANTIZED_QAT_MODEL_SAVE_PATH,
+        tokenizer=parent_tokenizer,
+        eval_dataset=tok_val_ds,
+        use_gpu=torch.cuda.is_available(),
+        batch_size=PER_DEVICE_EVAL_BATCH_SIZE
+    )
+    print("QAT model evaluation complete!")
 
 
 
