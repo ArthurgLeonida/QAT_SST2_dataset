@@ -1,0 +1,36 @@
+# ----------------------------------------------------
+# Generated / Large Project Artifacts (should NOT be committed)
+# ----------------------------------------------------
+distilbert_tokenizer_local/
+fine_tuned_baseline_model/
+logs/
+results_baseline/
+results_qat/
+SST2_tokenized_dataset/
+QAT_model/
+
+# ----------------------------------------------------
+# Python Specific Files
+# ----------------------------------------------------
+__pycache__/
+*.pyc
+.Python/
+venv/
+.env/
+
+# ----------------------------------------------------
+# IDE / Editor Specific Files (Optional, but good practice)
+# ----------------------------------------------------
+.idea/
+.vscode/
+
+# ----------------------------------------------------
+# Operating System Files
+# ----------------------------------------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------------------------------------
+# Other common temporary or log files
+# ----------------------------------------------------
+*.log
