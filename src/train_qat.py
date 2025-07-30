@@ -24,11 +24,12 @@ def train_qat_model(
     model_for_qat = AutoModelForSequenceClassification.from_pretrained(baseline_model_path)
 
     ort_config = ORTConfig(
-        quantization=AutoQuantizationConfig.for_sequence_classification(
-            is_static=True, 
-            format="QDQ", # (Quantize-Dequantize)
-            weight_type="int8",
-        )
+        quantization_config={
+            'is_static': True, 
+            'format': "QDQ", # (Quantize-Dequantize)
+            'weight_type': "int8",
+            'activation_type': "uint8",
+        }
     )
 
     qat_training_args = ORTTrainingArguments(
