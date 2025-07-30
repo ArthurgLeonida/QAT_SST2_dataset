@@ -27,8 +27,8 @@ To set up and run this project, you will need to have the following installed:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/ArthurgLeonida/AI_QuantizationAndPruning.git](https://github.com/ArthurgLeonida/AI_QuantizationAndPruning.git)
-    cd AI_QuantizationAndPruning
+    git clone [https://github.com/ArthurgLeonida/QAT_SST2_dataset](https://github.com/ArthurgLeonida/QAT_SST2_dataset)
+    cd QAT_SST2_dataset
     ```
 
 2.  **Create and Activate the Virtual Environment:**
