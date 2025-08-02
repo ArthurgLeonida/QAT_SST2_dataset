@@ -8,6 +8,7 @@ results_baseline/
 results_qat/
 SST2_tokenized_dataset/
 QAT_model/
+temp_onnx_model/
 
 # ----------------------------------------------------
 # Python Specific Files

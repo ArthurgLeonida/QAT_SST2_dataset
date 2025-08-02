@@ -58,7 +58,7 @@ if __name__ == '__main__':
     )
 
     ################################## Fine-Tuned Baseline Model Training ##################################
-    
+    '''
     print("\nStarting baseline model training...")
     train_baseline_model(
         model_name=MODEL_NAME,
@@ -74,7 +74,7 @@ if __name__ == '__main__':
         tokenizer=parent_tokenizer
     )
     print("Baseline model Fine-Tuning complete!")
-    
+    '''
     print("\nStarting evaluation of the baseline model...")
     evaluate_pytorch_model(
         model_path=FINE_TUNED_MODEL_SAVE_PATH,
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     print("Baseline model evaluation complete!")
     
     ######################################### QAT Model Training ###########################################
-
+    '''
     print("\nStarting Quantization-Aware Training (QAT) model training...")
     train_qat_model(
         baseline_model_path=FINE_TUNED_MODEL_SAVE_PATH,
@@ -110,7 +110,7 @@ if __name__ == '__main__':
         batch_size=PER_DEVICE_EVAL_BATCH_SIZE
     )
     print("QAT model evaluation complete!")
-
+    '''
 
 
 
