@@ -7,7 +7,7 @@ TOKENIZER_SAVE_PATH = "./distilbert_tokenizer_local"
 TOKENIZED_DATASET_SAVE_PATH = "./SST2_tokenized_dataset"
 FINE_TUNED_MODEL_SAVE_PATH = "./fine_tuned_baseline_model"
 BASELINE_OUTPUT_DIR = "./results_baseline"
-QUANTIZED_QAT_MODEL_SAVE_PATH = "./QAT_model"
+QUANTIZED_QAT_MODEL_SAVE_PATH = "./qat_finetuning_output/QAT_model"
 
 
 QUANTIZED_MODEL_SAVE_PATH = "./PTQ_model"
@@ -30,4 +30,4 @@ QAT_LEARNING_RATE = 2e-5
 NUM_PROCESSES_FOR_MAP = 6 # Number of processes for datasets.map() (adjust based on your CPU cores)
 
 # Subset for quick testing (set to -1 or a very large number for full dataset)
-SUBSET_SIZE = -1
+SUBSET_SIZE = -1  # Use -1 for full dataset, or set a specific number for a subset

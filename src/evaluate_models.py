@@ -23,6 +23,7 @@ def evaluate_pytorch_model(model_path, eval_dataset, batch_size=16, tokenizer=No
 
     model = AutoModelForSequenceClassification.from_pretrained(model_path)
     device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"Evaluation device: {device}")
     model.to(device)
     model.eval()
 
