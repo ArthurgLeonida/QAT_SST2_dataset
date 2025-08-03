@@ -7,9 +7,10 @@ logs/
 results_baseline/
 results_qat/
 SST2_tokenized_dataset/
-QAT_model/
-temp_onnx_model/
+
 qat_finetuning_output/
+quantized_pytorch_model/
+onnx_models_quantized/
 
 # ----------------------------------------------------
 # Python Specific Files

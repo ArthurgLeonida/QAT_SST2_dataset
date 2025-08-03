@@ -8,7 +8,7 @@ TOKENIZED_DATASET_SAVE_PATH = "./SST2_tokenized_dataset"
 FINE_TUNED_MODEL_SAVE_PATH = "./fine_tuned_baseline_model"
 BASELINE_OUTPUT_DIR = "./results_baseline"
 QUANTIZED_QAT_MODEL_SAVE_PATH = "./qat_finetuning_output/QAT_model"
-
+ONNX_MODEL_SAVE_PATH = "./ONNX_model"
 
 QUANTIZED_MODEL_SAVE_PATH = "./PTQ_model"
 PRUNED_MODEL_SAVE_PATH = "./PTUP_model"
